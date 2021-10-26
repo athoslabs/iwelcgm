@@ -41,7 +41,7 @@ class UserInfoScreen extends StatelessWidget {
               color: Colors.grey,
             ),
             ListTile(
-              title: Text('User'),
+              title: Text('User Summary'),
               trailing: Icon(
                 Icons.arrow_forward_ios,
                 color: Colors.teal,
