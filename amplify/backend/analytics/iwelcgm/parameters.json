@@ -1,0 +1,21 @@
+{
+    "appName": "iwelcgm",
+    "roleName": "pinpointLambdaRoledacecbe8",
+    "cloudformationPolicyName": "cloudformationPolicydacecbe8",
+    "cloudWatchPolicyName": "cloudWatchPolicydacecbe8",
+    "pinpointPolicyName": "pinpointPolicydacecbe8",
+    "authPolicyName": "pinpoint_amplify_dacecbe8",
+    "unauthPolicyName": "pinpoint_amplify_dacecbe8",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}

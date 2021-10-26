@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "iwelcgm",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authiwelcgm4f54a69a",
+      "Outputs.UserPoolId"
+    ]
+  }
+}
