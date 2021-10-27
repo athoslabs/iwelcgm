@@ -22,6 +22,37 @@ class _ShareDataScreenState extends State<ShareDataScreen> {
         title: Text('Share My Data'),
         centerTitle: true,
       ),
+      body: ListView(
+        padding: EdgeInsets.all(40.0),
+        children: [
+          Divider(
+            height: 2,
+            color: Colors.grey,
+          ),
+          ListTile(
+            title: Text('By Email'),
+            trailing: Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.teal,
+            ),
+          ),
+          Divider(
+            height: 2,
+            color: Colors.grey,
+          ),
+          ListTile(
+            title: Text('By Text Message'),
+            trailing: Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.teal,
+            ),
+          ),
+          Divider(
+            height: 2,
+            color: Colors.grey,
+          ),
+        ],
+      ),
     );
   }
 }
