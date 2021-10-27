@@ -15,6 +15,9 @@ class AlertSettingsScreen extends StatefulWidget {
 class _AlertSettingsScreenState extends State<AlertSettingsScreen> {
 
   bool value = true;
+  bool _vibrateSounds = false;
+  bool _vibrateSilent = false;
+  bool _alwaysSound = false;
   @override
   Widget build(BuildContext context) {
     return _buildUI();
@@ -30,27 +33,42 @@ class _AlertSettingsScreenState extends State<AlertSettingsScreen> {
      body: ListView(
        padding: EdgeInsets.all(30.0),
        children: [
-         ListTile(
-           title: Text('Vibrate with sounds'),
-           trailing: buildSwitch(),
-         ),
+         SwitchListTile(
+           activeColor: Colors.teal,
+           title: Text('Vibrate With Sounds'),
+             value: _vibrateSounds,
+             onChanged: (value) {
+           setState(() {
+             _vibrateSounds = value;
+           });
+         }),
          Divider(
            height: 2,
            color: Colors.grey,
          ),
-         ListTile(
-           title: Text('Vibrate on silent'),
-           trailing: buildSwitch(),
-         ),
+         SwitchListTile(
+           activeColor: Colors.teal,
+           title: Text('Vibrate on Silent'),
+             value: _vibrateSilent,
+             onChanged: (value) {
+           setState(() {
+             _vibrateSilent = value;
+           });
+         }),
          Divider(
            height: 2,
            color: Colors.grey,
          ),
-         ListTile(
+         SwitchListTile(
+           activeColor: Colors.teal,
            title: Text('Always Sound'),
-           subtitle: Text('Always alerts even when silent or Do Not Disturb are on.', style: TextStyle(fontSize: 12)),
-           trailing: buildSwitch(),
-         ),
+             subtitle: Text('Allows alerts to sound even silent or Do Not Disturb are active'),
+             value: _alwaysSound,
+             onChanged: (value) {
+           setState(() {
+             _alwaysSound = value;
+           });
+         }),
          Divider(
            height: 2,
            color: Colors.grey,

@@ -11,6 +11,12 @@ class AlertScheduleScreen extends StatefulWidget {
 class _AlertScheduleScreenState extends State<AlertScheduleScreen> {
 
   final highAlertController = TextEditingController();
+  final highActionController = TextEditingController();
+  final lowAlertController = TextEditingController();
+  final lowActionController = TextEditingController();
+
+  bool _noSignal = false;
+  bool _noReadings = false;
 
   @override
   void initState() {
@@ -44,34 +50,55 @@ class _AlertScheduleScreenState extends State<AlertScheduleScreen> {
             height: 2,
             color: Colors.grey,
           ),
-          ListTile(
-            title: Text('High Action'),
+          _buildListTile('High Action', highActionController),
+          Divider(
+            height: 2,
+            color: Colors.grey,
           ),
+          _buildListTile('Low Alert', lowAlertController),
+          Divider(
+            height: 2,
+            color: Colors.grey,
+          ),
+          _buildListTile('Low Action', lowActionController),
           Divider(
             height: 2,
             color: Colors.grey,
           ),
           ListTile(
-            title: Text('Low Alert'),
+            title: Text('System Alerts', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),),
+            tileColor: Colors.teal,
           ),
           Divider(
             height: 2,
             color: Colors.grey,
           ),
-          ListTile(
-            title: Text('Low Action'),
+          SwitchListTile(
+            activeColor: Colors.teal,
+            title: Text('Signal Loss'),
+            value: _noSignal,
+            onChanged: (value) {
+              setState(() {
+                _noSignal = value;
+              });
+            } ,
           ),
-          Divider(
-            height: 2,
-            color: Colors.grey,
-          ),
-          ListTile(
-            title: Text('Low Action Soon'),
+          SwitchListTile(
+            activeColor: Colors.teal,
+            title: Text('No Readings'),
+            value: _noReadings,
+            onChanged: (value) {
+              setState(() {
+                _noReadings = value;
+              });
+            } ,
           ),
         ],
       ),
     );
   }
+
+
 
   Widget _buildListTile(String _title, TextEditingController _controller) => ListTile(
     contentPadding: EdgeInsets.symmetric(vertical: 8.0),
@@ -83,11 +110,8 @@ class _AlertScheduleScreenState extends State<AlertScheduleScreen> {
         cursorColor: Colors.teal,
         controller: _controller,
         decoration: InputDecoration(
+          border: InputBorder.none,
           hintText: '---',
-          border: OutlineInputBorder(),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.teal, width: 2.0)
-          )
         ),
         keyboardType: TextInputType.number,
         textInputAction: TextInputAction.done,
