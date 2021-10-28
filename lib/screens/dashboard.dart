@@ -64,6 +64,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
     return showDialog(
         context: context,
+        barrierDismissible: false,
         builder: (context) {
           return AlertDialog(
             title: const Text('Fasting Number'),

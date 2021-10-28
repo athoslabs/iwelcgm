@@ -55,6 +55,12 @@ class _ConfirmScreenState extends State<ConfirmScreen> {
             } catch (e) {
               throw ('An error occurred while creating new UserInfo: $e');
             }
+            Settings newUserSettings = Settings(userId: _user.userId, highAlert: 200, highAction: 285, lowAlert: 50, lowAction: 25, signalLoss: false, noReadings: false);
+            try {
+              await Amplify.DataStore.save(newUserSettings);
+            } catch (e) {
+              throw ('An error occurred while creating new Settings: $e');
+            }
           });
           Navigator.pushReplacementNamed(context, '/devices');
         }

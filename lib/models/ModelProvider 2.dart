@@ -26,7 +26,6 @@ import 'DeviceReading.dart';
 import 'ExerciseEvent.dart';
 import 'FastActingInsEvent.dart';
 import 'LongActingInsEvent.dart';
-import 'Settings.dart';
 import 'UserInfo.dart';
 
 export 'BloodPressureEvent.dart';
@@ -35,14 +34,13 @@ export 'DeviceReading.dart';
 export 'ExerciseEvent.dart';
 export 'FastActingInsEvent.dart';
 export 'LongActingInsEvent.dart';
-export 'Settings.dart';
 export 'UserInfo.dart';
 
 class ModelProvider implements ModelProviderInterface {
   @override
-  String version = "659be3e2533f3163134359e6f645ce6b";
+  String version = "9e5eb2299888abfd8c1fe7cf0d033d41";
   @override
-  List<ModelSchema> modelSchemas = [BloodPressureEvent.schema, CarbEvent.schema, DeviceReading.schema, ExerciseEvent.schema, FastActingInsEvent.schema, LongActingInsEvent.schema, Settings.schema, UserInfo.schema];
+  List<ModelSchema> modelSchemas = [BloodPressureEvent.schema, CarbEvent.schema, DeviceReading.schema, ExerciseEvent.schema, FastActingInsEvent.schema, LongActingInsEvent.schema, UserInfo.schema];
   static final ModelProvider _instance = ModelProvider();
 
   static ModelProvider get instance => _instance;
@@ -71,10 +69,6 @@ class ModelProvider implements ModelProviderInterface {
     break;
     case "LongActingInsEvent": {
     return LongActingInsEvent.classType;
-    }
-    break;
-    case "Settings": {
-    return Settings.classType;
     }
     break;
     case "UserInfo": {
